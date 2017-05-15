@@ -1,0 +1,71 @@
+.quad1{
+  background-image: url(./images/packs-duffels.jpg);
+  width: 33.33%;
+  height: 100%;
+  float: left;
+  position: relative;
+  background-size: cover;
+}
+.quad1:after {
+    content:' ';
+    color:#fff;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+}
+.quad1:hover:after {
+    opacity:1;
+}
+
+.quad2{
+  background-image: url(./images/packs-backpack1.png);
+  width: 33.33%;
+  height: 100%;
+  float: left;
+  position: relative;
+  background-size: cover;
+}
+.quad2:after {
+    content:' ';
+    color:#fff;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+}
+.quad2:hover:after {
+    opacity:1;
+}
+
+.quad3{
+  background-image: url(./images/packs-rucksacks.jpg);
+  width: 33.33%;
+  height: 100%;
+  float: left;
+  position: relative;
+  background-size: cover;
+}
+.quad3:after {
+    content:' ';
+    color:#fff;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+}
+.quad3:hover:after {
+    opacity:1;
+}
