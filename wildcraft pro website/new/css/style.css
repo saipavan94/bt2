@@ -2,106 +2,20 @@ html,body{
   height: 100%;
   width: 100%;
 }
-/*html{
-  background-color: #222;
-}*/
-
-body{
-  /*margin: 4px;*/
-  background-color: white;
+.navbar-nav li a:hover{
+  color: orange !important;
 }
-
-.offers_grid_parent{
-    clear: both;
-    background-color: white;
-    width: 100%;
-    padding-bottom: 20px;
-    padding-top: 20px;
+.pull-right {
+  float: right !important;
 }
-
-/*Header Unit - css*/
-header{
-  width: auto;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  /*margin-top: 20px;*/
-  height: 50px;
-  background-color: #222;
-  font-family: 'Pacifico', cursive;
-  font-size: 16px;
-  color: white;
-  }
-header a{
-  color: orange;
+.navbar{
+  margin-bottom: 0;
 }
-
-.header_top_left{
-  float: left;
-}
-.header_top_right_outer{
-  float: right;
-  padding-right: 10px;
-
-}
-/*End of Header Unit - css*/
-
-/*Hero Unit - css*/
-
-.hero-unit {
-  width: 100%;
-  margin-top: 0%;
-}
-
-.half-col {
-  height: 50%;
-}
-
-.col-1 {
-  float: left;
-  height: 100%;
-  margin-top: 0;
-  background-color: green;
-}
-
-
-.col-2 {
-  width: 50%;
-  float: left;
-  height: 100%;
-  margin-top: 0;
-  background-color: red;
-}
-
-
-
-
-.hero-unit,.hero-unit .full-col {
-  height: 800px;
-  float:left;
-}
-
-
-
-.col-1,.col-3 {
-  width: 25%;
-  }
-
-.half-width {
-  width: 50%;
-}
-
-.col-3{
-  background: pink;
-  float: left;
-  height: 100%;
-}
-
-
 #backpack {
-  background-image: url('./images/backpack.jpg');
+  background-image: url('../images/backpack.jpg');
   position: relative;
   background-size: cover;
+  height:100% !important;
 }
 
 #backpack:after {
@@ -120,9 +34,10 @@ header a{
 }
 
 #rucksack {
-  background-image: url('./images/hiking.jpg');
+  background-image: url('../images/hiking.jpg');
   position: relative;
   background-size: cover;
+  height: 100%;
 }
 
 
@@ -143,9 +58,11 @@ header a{
 }
 
 #raincoat {
-   background-image: url('./images/rain.jpg');
+   background-image: url('../images/rain.jpg');
    position: relative;
    background-size: cover;
+   height:100% !important;
+
 }
 
 #raincoat:after {
@@ -163,12 +80,7 @@ header a{
     opacity:1;
 }
 
-.caption {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  /* top: 100px; */
-}
+
 
 .caption-text {
   position: absolute;;
@@ -181,9 +93,8 @@ header a{
 
 
 #accessories{
-  width: 50%;
-  height: 50%;
-  background-image: url('./images/accessories.jpg');
+  height: 100%;
+  background-image: url(../images/accessories.jpg);
   float: left;
   position: relative;
   background-size: cover;
@@ -206,9 +117,8 @@ header a{
 }
 
 #apparel{
-  width: 50%;
-  height: 50%;
-  background-image: url(./images/apparel.jpg);
+  height: 100%;
+  background-image: url(../images/apparel.jpg);
   float: right;
   position: relative;
   background-size: cover;
@@ -229,11 +139,20 @@ header a{
     opacity:1;
 }
 
+.fiftyPercentHeight{
+  height:50%;
+  padding:0px;
+  width:77.1%;
+}
+.footer_bakground{
+  background: #999 !important;
+}
+
 #footwear{
   float: left;
   height: 100%;
   margin-left: -10px;
-  background-image: url(./images/footwear.jpg);
+  background-image: url(../images/footwear.jpg);
   position: relative;
   background-size: cover;
 }
@@ -432,6 +351,16 @@ footer{
   position: relative;
   top: 50px;
 }
-/*#footer_allpages ul li a{
-  color:
-}*/
+li .fhead{
+  text-align: center !important;
+}
+
+#shopping_cart{
+  color: orange;
+  font-size: 20px;
+  padding:1% 1.5% ;
+  padding-bottom: 0;
+}
+#nav_search_icon_color{
+  color: orange;
+}
