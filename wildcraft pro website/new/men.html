@@ -10,6 +10,46 @@
          <link href="css/mens.css" rel="stylesheet">
       <title>Wildcraft</title>
       <meta charset="utf-8">
+  <script type="text/javascript">
+
+       $(document).ready(function() {
+         var controlTab=false;
+           $("#btn").click(function() {
+             controlTab=true;
+               $("#myModal").modal("show");
+           });
+
+           $('#myModal').on('shown.bs.modal', function() {
+               $('#textareaID').focus();
+           })
+
+           $("#myModal").on("hidden.bs.modal", function() {
+               // console.log("working");
+               controlTab=false;
+               $('#launchModalButton').focus();
+           });
+
+           $('body').on('keydown', function(e) {
+               var jqTarget = $(e.target);
+               if (e.keyCode == 9 && controlTab==true) {
+
+                   var jqVisibleInputs = $(':input:visible');
+                   var jqFirst = jqVisibleInputs.first();
+                   var jqLast = jqVisibleInputs.last();
+
+                   if (!e.shiftKey && jqTarget.is(jqLast)) {
+                       e.preventDefault();
+                       jqFirst.focus();
+                   } else if (e.shiftKey && jqTarget.is(jqFirst)) {
+                       e.preventDefault();
+                       jqLast.focus();
+                   }
+               }
+           });
+
+
+       });
+   </script>
   </head>
   <body>
 <nav class="navbar navbar-default" >
@@ -22,9 +62,15 @@
       <li><a href="#">MEN</a></li>
       <li><a href="#">WOMEN</a></li>
     </ul>
+    <div style="padding-right:1%;padding-top:0.5%" class="nav navbar-right">
+      <button class="btn btn-default" type="button" class="btn btn-primary btn" id="launchModalButton" data-toggle="modal" data-target="#myModal">
+        login
+      </button>
+    </div>
     <div id="shopping_cart" class="nav navbar-right">
      <span class="glyphicon glyphicon-shopping-cart"></span>
     </div>
+
       <form class="navbar-form navbar-right">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
@@ -42,50 +88,50 @@
     <div class="row" style="height:100%">
       <div class="options_bar">
         <div class="price_main">
-          <span class="price_heading">PRICE</span>
+          <span tabindex="0" class="price_heading">PRICE</span>
           <div class="price_box">
-            <div class="price_list">
+            <div tabindex="0" class="price_list">
               Rs 0 - Rs 1000
             </div>
-            <div class="price_list">
+            <div tabindex="0" class="price_list">
               Rs 1000 - Rs 2000
             </div>
-            <div class="price_list">
+            <div tabindex="0" class="price_list">
               Rs 2000 - Rs 3000
             </div>
           </div>
         </div>
         <div class="size_main">
-          <span class="size_heading">SIZE</span>
+          <span tabindex="0" class="size_heading">SIZE</span>
           <div class="container-fluid row" style="margin-left:1%">
-            <div  class="col-sm-3  size_list"   >
+            <div  tabindex="0" class="col-sm-3  size_list"   >
               XS
             </div>
-            <div style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
+            <div tabindex="0" style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
               S
             </div>
-            <div style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
+            <div tabindex="0" style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
               M
             </div>
-            <div style="margin-top:1%" class="col-sm-3  size_list" >
+            <div tabindex="0" style="margin-top:1%" class="col-sm-3  size_list" >
               L
             </div>
-            <div style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
+            <div tabindex="0" style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
               XL
             </div>
-            <div style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
+            <div tabindex="0" style="margin-top:1%" class="col-sm-3 col-sm-offset-1 size_list" >
               XXL
             </div>
           </div>
         </div>
         <div class="collections_main">
-          <span class="collections_heading">COLLECTIONS</span>
+          <span tabindex="0" class="collections_heading">COLLECTIONS</span>
           <div class="container-fluid row" style="margin-left:1%">
             <div class="collections_box">
-              <div class="collections_list">
+              <div tabindex="0" class="collections_list">
                 Hypacool
               </div>
-              <div class="collections_list">
+              <div tabindex="0" class="collections_list">
                 Hypawarm
               </div>
             </div>
@@ -94,11 +140,11 @@
       </div>
       <div class="content_bar">
           <div class="content_bar_main container-fluid">
-            <div class="row content_title">
+            <div tabindex="0" class="row content_title">
               <h2>T-Shirts & Shirts</h2>
             </div>
-            <div class="row" style="height:100%">
-              <div class="col-sm-3 content_list">
+            <div class="row" style="height:98%;overflow: scroll;padding-bottom:8%">
+              <div tabindex="0" class="col-sm-3 content_list">
                 <img src="../images/coat.png" width="100%" height="60%">
                 <div class="content_description row">
                   <span class="col-sm-12 product_name">Men's Shirt Jacket - Light Beige</span>
@@ -114,8 +160,53 @@
                 </div>
               </div>
 
-              <div class="col-sm-3 content_list">
-                <img src="../images/coat.png" width="100%" height="60%">
+              <div tabindex="0" class="col-sm-3 content_list">
+                <img src="../images/mens2.png" width="100%" height="60%">
+                <div class="content_description row">
+                  <span class="col-sm-12 product_name">Men's Shirt Jacket - Light Beige</span>
+                  <span class="col-sm-12 product-category">T-Shirts &amp; Shirts</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <span class="col-sm-12 product_price">Rs 2202</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <div class="add_to_cart">
+                    Add To Cart
+                  </div>
+                </div>
+              </div>
+              <div tabindex="0" class="col-sm-3 content_list">
+                <img src="../images/mens3.png" width="100%" height="60%">
+                <div class="content_description row">
+                  <span class="col-sm-12 product_name">Men's Shirt Jacket - Light Beige</span>
+                  <span class="col-sm-12 product-category">T-Shirts &amp; Shirts</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <span class="col-sm-12 product_price">Rs 2202</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <div class="add_to_cart">
+                    Add To Cart
+                  </div>
+                </div>
+              </div>
+              <div tabindex="0" class="col-sm-3 content_list">
+                <img src="../images/mens4.png" width="100%" height="60%">
+                <div class="content_description row">
+                  <span class="col-sm-12 product_name">Men's Shirt Jacket - Light Beige</span>
+                  <span class="col-sm-12 product-category">T-Shirts &amp; Shirts</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <span class="col-sm-12 product_price">Rs 2202</span>
+                </div>
+                <div class="col-sm-12 row">
+                  <div class="add_to_cart">
+                    Add To Cart
+                  </div>
+                </div>
+              </div>
+              <div tabindex="0" class="col-sm-3 content_list">
+                <img src="../images/mens5.png" width="100%" height="60%">
                 <div class="content_description row">
                   <span class="col-sm-12 product_name">Men's Shirt Jacket - Light Beige</span>
                   <span class="col-sm-12 product-category">T-Shirts &amp; Shirts</span>
@@ -184,5 +275,50 @@
 
 
       </footer>
+
+      <!-- <div class="container-fluid"> -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" style="left:0%">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <input id="textareaID" class="form-control" id="contactinfo" role="form" aria-label="update your contact infrmation" placeholder="contact details"></input>
+                          </div>
+                          <div class="form-group">
+                              <label for="firstname" class="form-control-label">FIRST NAME</label>
+                              <input type="text" class="form-control" id="firstname" role="form" aria-label="update your first name">
+                          </div>
+                          <div class="form-group">
+                              <label for="lastname" class="form-control-label">LAST NAME</label>
+                              <input type="text" class="form-control" id="lastname" role="form" aria-label="update your lastname">
+                          </div>
+                          <div class="form-group">
+                              <label for="emailaddress" class="form-control-label">EMAIL ADDRESS</label>
+                              <input type="email" class="form-control" id="emailaddress" role="form" aria-label="update your email address">
+                          </div>
+
+                          <!--
+     <button type="button" class="btn btn-primary"  data-dismiss="modal" role="button" aria-label="SubmitYour Information">SUBMIT</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="Close">CANCEL</button> -->
+
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="SubmitYour Information">SUBMIT</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="Close">CANCEL</button>
+                  </div>
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- </div> -->
   </body>
 </html>

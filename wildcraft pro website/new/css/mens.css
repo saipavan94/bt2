@@ -71,6 +71,7 @@ background:#999;height:100%;width:80%;float: left;
 .content_list{
   height: 60%;
   border: 1px solid #eee;
+  margin: 0.5%;
 }
 .content_description{
   height: 15%;

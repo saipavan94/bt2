@@ -10,6 +10,45 @@
 
       <title>Wildcraft</title>
       <meta charset="utf-8">
+        <script type="text/javascript">
+       $(document).ready(function() {
+         var controlTab=false;
+           $("#btn").click(function() {
+             controlTab=true;
+               $("#myModal").modal("show");
+           });
+
+           $('#myModal').on('shown.bs.modal', function() {
+               $('#textareaID').focus();
+           })
+
+           $("#myModal").on("hidden.bs.modal", function() {
+               // console.log("working");
+               controlTab=false;
+               $('#launchModalButton').focus();
+           });
+
+           $('body').on('keydown', function(e) {
+               var jqTarget = $(e.target);
+               if (e.keyCode == 9 && controlTab==true) {
+
+                   var jqVisibleInputs = $(':input:visible');
+                   var jqFirst = jqVisibleInputs.first();
+                   var jqLast = jqVisibleInputs.last();
+
+                   if (!e.shiftKey && jqTarget.is(jqLast)) {
+                       e.preventDefault();
+                       jqFirst.focus();
+                   } else if (e.shiftKey && jqTarget.is(jqFirst)) {
+                       e.preventDefault();
+                       jqLast.focus();
+                   }
+               }
+           });
+
+
+       });
+   </script>
   </head>
   <body>
 <nav class="navbar navbar-default" >
@@ -18,10 +57,15 @@
         <img style="position:relative;float:left" height="50"  src="./images/logo.png"  alt="">
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">PACKS</a></li>
+      <li><a  href="#">PACKS</a></li>
       <li><a href="men.html">MEN</a></li>
       <li><a href="#">WOMEN</a></li>
     </ul>
+    <div style="padding-right:1%;padding-top:0.5%" class="nav navbar-right">
+      <button  class="btn btn-default" type="button" class="btn btn-primary btn" id="launchModalButton" data-toggle="modal" data-target="#myModal">
+        login
+      </button>
+    </div>
     <div id="shopping_cart" class="nav navbar-right">
      <span class="glyphicon glyphicon-shopping-cart"></span>
     </div>
@@ -42,40 +86,46 @@
 
   <div class="container-fluid" style="height:100%">
   <div class="row col-sm-9 fiftyPercentHeight" >
-    <div class="col-sm-4" id="backpack">
+    <div tabindex="0" type="button" class="col-sm-4" id="backpack">
       <div class="caption">
       <div class="caption-text">BACKPACK</div>
       </div>
     </div>
-    <div class="col-sm-8" id="raincoat">
+    <div tabindex="0" class="col-sm-8" id="raincoat">
       <div class="caption">
       <div class="caption-text">RAINCOAT</div>
       </div>
     </div>
   </div>
-  <div class="row col-sm-3 pull-right" id="footwear" >
+  <div tabindex="0" class="row col-sm-3 pull-right" id="footwear" >
     <div class="caption">
     <div class="caption-text">FOOTWEAR</div>
     </div>
   </div>
   <div class="row col-sm-9 fiftyPercentHeight" >
-    <div class="col-sm-4" id="rucksack">
+    <div tabindex="0" class="col-sm-4" id="rucksack">
       <div class="caption">
       <div class="caption-text">RUCKSACK</div>
       </div>
     </div>
-    <div class="col-sm-4" id="accessories">
+    <div tabindex="0" class="col-sm-4" id="accessories">
       <div class="caption">
       <div class="caption-text">ACCESSORIES</div>
       </div>
     </div>
-    <div class="col-sm-4" id="apparel">
+    <div tabindex="0" class="col-sm-4" id="apparel">
       <div class="caption">
       <div class="caption-text">APPAREL</div>
       </div>
     </div>
   </div>
   </div>
+
+
+
+
+
+
   <footer is="footer_allpages" class="container-fluid">
 
       <ul class="ul_hm">
@@ -126,5 +176,50 @@
 
 
       </footer>
+      <!-- <div class="container-fluid"> -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" style="left:0%">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <input id="textareaID" class="form-control" id="contactinfo" role="form" aria-label="update your contact infrmation" placeholder="contact details"></input>
+                          </div>
+                          <div class="form-group">
+                              <label for="firstname" class="form-control-label">FIRST NAME</label>
+                              <input type="text" class="form-control" id="firstname" role="form" aria-label="update your first name">
+                          </div>
+                          <div class="form-group">
+                              <label for="lastname" class="form-control-label">LAST NAME</label>
+                              <input type="text" class="form-control" id="lastname" role="form" aria-label="update your lastname">
+                          </div>
+                          <div class="form-group">
+                              <label for="emailaddress" class="form-control-label">EMAIL ADDRESS</label>
+                              <input type="email" class="form-control" id="emailaddress" role="form" aria-label="update your email address">
+                          </div>
+
+                          <!--
+     <button type="button" class="btn btn-primary"  data-dismiss="modal" role="button" aria-label="SubmitYour Information">SUBMIT</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="Close">CANCEL</button> -->
+
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="SubmitYour Information">SUBMIT</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" role="button" aria-label="Close">CANCEL</button>
+                  </div>
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!-- </div> -->
+
   </body>
 </html>

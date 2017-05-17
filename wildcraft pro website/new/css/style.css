@@ -18,17 +18,6 @@ html,body{
   height:100% !important;
 }
 
-#backpack:after {
-    content:' ';
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.6);
-    opacity:0;
-    transition: all 0.5s;
-}
 #backpack:hover:after {
     opacity:1;
 }
@@ -293,28 +282,28 @@ footer{
 }
 
 .fb{
-  background-image: url(./images/facebook.png);
+  background-image: url('../images/facebook.png');
   position: relative;
   background-size: cover;
   height: 50px;
   width: 50px;
 }
 .insta{
-  background-image: url(./images/instagram.png);
+  background-image: url('../images/instagram.png');
   position: relative;
   background-size: cover;
   height: 50px;
   width: 50px;
 }
 .twitter{
-  background-image: url(./images/twitter.png);
+  background-image: url('../images/twitter.png');
   position: relative;
   background-size: cover;
   height: 50px;
   width: 50px;
 }
 .youtube{
-  background-image: url(./images/youtube.png);
+  background-image: url('../images/youtube.png');
   position: relative;
   background-size: cover;
   height: 50px;
@@ -322,7 +311,7 @@ footer{
 }
 /*End Of Footer - css*/
 .rainwear{
-  background-image: url(./images/rainwear.jpg);
+  background-image: url('../images/rainwear.jpg');
 }
 
 .fhead{
@@ -363,4 +352,11 @@ li .fhead{
 }
 #nav_search_icon_color{
   color: orange;
+}
+
+#sample li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
